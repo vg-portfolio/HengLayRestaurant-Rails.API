@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620222459) do
+ActiveRecord::Schema.define(version: 20170620231616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.text     "type",       null: false
-    t.text     "type_khmer", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["type"], name: "index_categories_on_type", unique: true, using: :btree
-    t.index ["type_khmer"], name: "index_categories_on_type_khmer", unique: true, using: :btree
+    t.text     "category_type",       null: false
+    t.text     "category_type_khmer"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["category_type"], name: "index_categories_on_category_type", unique: true, using: :btree
+    t.index ["category_type_khmer"], name: "index_categories_on_category_type_khmer", unique: true, using: :btree
   end
 
   create_table "dishes", force: :cascade do |t|

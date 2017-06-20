@@ -1,3 +1,3 @@
 class CategorySerializer < ActiveModel::Serializer
-  attributes :id, :type, :type_khmer
+  attributes :id, :category_type, :category_type_khmer
 end
