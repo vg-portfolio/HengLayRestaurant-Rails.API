@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 20170619204840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dishes", force: :cascade do |t|
+    t.text     "name",                  null: false
+    t.text     "khmer_name"
+    t.text     "description"
+    t.money    "price",       scale: 2
+    t.text     "category"
+    t.integer  "user_id",               null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["name"], name: "index_dishes_on_name", unique: true, using: :btree
+    t.index ["user_id"], name: "index_dishes_on_user_id", using: :btree
+  end
 
   create_table "examples", force: :cascade do |t|
     t.text     "text",       null: false
@@ -33,5 +46,6 @@ ActiveRecord::Schema.define(version: 2) do
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
+  add_foreign_key "dishes", "users"
   add_foreign_key "examples", "users"
 end
