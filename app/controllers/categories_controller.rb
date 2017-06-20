@@ -1,5 +1,6 @@
-class CategoriesController < ApplicationController
+class CategoriesController < ProtectedController
   before_action :set_category, only: [:show, :update, :destroy]
+  skip_before_action :authenticate, only: [:create, :update, :destroy]
 
   # GET /categories
   def index
@@ -46,6 +47,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def category_params
-      params.fetch(:category, {})
+      params.require(:category).permit(:type, :type_khmer)
     end
 end
