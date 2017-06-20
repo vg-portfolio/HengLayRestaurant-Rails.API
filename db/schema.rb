@@ -10,20 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619204840) do
+ActiveRecord::Schema.define(version: 20170620222459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.text     "type",       null: false
+    t.text     "type_khmer", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_categories_on_type", unique: true, using: :btree
+    t.index ["type_khmer"], name: "index_categories_on_type_khmer", unique: true, using: :btree
+  end
 
   create_table "dishes", force: :cascade do |t|
     t.text     "name",                  null: false
     t.text     "khmer_name"
     t.text     "description"
     t.money    "price",       scale: 2
-    t.text     "category"
     t.integer  "user_id",               null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_dishes_on_category_id", using: :btree
     t.index ["name"], name: "index_dishes_on_name", unique: true, using: :btree
     t.index ["user_id"], name: "index_dishes_on_user_id", using: :btree
   end
@@ -46,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170619204840) do
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
+  add_foreign_key "dishes", "categories"
   add_foreign_key "dishes", "users"
   add_foreign_key "examples", "users"
 end
