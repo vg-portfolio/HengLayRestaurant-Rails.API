@@ -6,7 +6,7 @@ class CategoriesController < ProtectedController
   def index
     @categories = Category.all
 
-    render json: @categories
+    render json: @categories.includes(:dishes), include: ['dishes']
   end
 
   # GET /categories/1

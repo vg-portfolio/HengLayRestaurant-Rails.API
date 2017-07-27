@@ -1,8 +1,8 @@
 #!/bin/bash
 
-TOKEN=BAhJIiU2ZjVmNTllOTY4OWU5YzgwYWU4ZTBlNzRhOWVjYmU1YQY6BkVG--80d99b0f240301c6c6582f3f1c5694bfe98501f6
-NAME="Noodles"
-DESCR="Rice noodles in beef or chicken broth"
+TOKEN=BAhJIiU5MTZlNTQ0NTQzNDQyMGMwMjU0MzRkZDczZjgzOGNiZAY6BkVG--f2d05c58b231c577a3fa33a9ec4024198866d2ba
+NAME="Ric"
+DESCR="Grilled beef laid over rice."
 PRICE="9.99"
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/dishes"
