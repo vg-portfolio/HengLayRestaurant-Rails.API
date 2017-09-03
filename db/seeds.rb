@@ -24,3 +24,11 @@ Category.create([
   { category_type: 'Beverages'},
   { category_type: 'Traditional Khmer Food'}
   ])
+
+Dish.create([
+  { name: 'Spring Roll (3)',
+    description: 'Shredded lettuce, Cucumber, Mint combined with slice Pork and Shrimp. Then wrapped in soften rice paper.',
+    price: '6',
+    user_id: '1',
+    category_id: '1' },
+  ])
