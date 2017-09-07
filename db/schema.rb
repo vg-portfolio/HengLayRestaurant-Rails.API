@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805012923) do
+ActiveRecord::Schema.define(version: 20170907014346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 20170805012923) do
     t.datetime "updated_at",            null: false
     t.integer  "category_id"
     t.integer  "item_number"
+    t.boolean  "seasonal"
+    t.boolean  "size_option"
+    t.decimal  "price2"
+    t.decimal  "price3"
     t.index ["category_id"], name: "index_dishes_on_category_id", using: :btree
     t.index ["name"], name: "index_dishes_on_name", unique: true, using: :btree
     t.index ["user_id"], name: "index_dishes_on_user_id", using: :btree

@@ -46,6 +46,6 @@ class DishesController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def dish_params
-      params.require(:dish).permit(:name, :khmer_name, :description, :price, :item_number, :category_id)
+      params.require(:dish).permit(:name, :khmer_name, :description, :price, :price2, :price3, :item_number, :seasonal, :size_option, :category_id)
     end
 end
